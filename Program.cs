@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,17 +44,22 @@ namespace FoodCourt
                                 case 1:
                                     try
                                     {
-                                        Console.WriteLine("You chose to Insert new Employee");
-                                        Console.WriteLine("Enter Name: ");
-                                        string name = Console.ReadLine();
-                                        Console.WriteLine("Enter Id: ");
-                                        int Id = Convert.ToInt32(Console.ReadLine());
-                                        Console.WriteLine("Enter Salary: ");
-                                        double salary = Convert.ToDouble(Console.ReadLine());
-                                        //   Entri ent = new Entri();
-                                        ent.Connection();
-                                        ent.Execute("Insert Into Employee(Name,Empid,Salary) Values('" + name + "','" + Id + "','" + salary + "')");
-                                        ent.Cclose();
+                                        /* Console.WriteLine("You chose to Insert new Employee");
+                                         Console.WriteLine("Enter Name: ");
+                                         string name = Console.ReadLine();
+                                         Console.WriteLine("Enter Id: ");
+                                         int Id = Convert.ToInt32(Console.ReadLine());
+                                         Console.WriteLine("Enter Salary: ");
+                                         double salary = Convert.ToDouble(Console.ReadLine());
+
+                                         ent.Connection();
+                                         ent.Execute("Insert Into Employee(Name,Empid,Salary) Values('" + name + "','" + Id + "','" + salary + "')");
+                                         ent.Cclose();*/
+
+                                        em.Filex();
+                                        //string Path = @"C:\Users\Public\Documents\Employee.txt";
+                                        em.Add();
+                                       
                                     }
                                     catch (Exception ex)
                                     {
@@ -80,8 +86,22 @@ namespace FoodCourt
                                     Console.WriteLine("You chose to see All employees");
 
 
-                                    em.Emplist("Select * from Employee");
-                                    ent.Cclose();
+                                    /*  em.Emplist("Select * from Employee");
+                                      ent.Cclose();*/
+
+
+
+
+
+                                    em.ReadAll();
+
+                                    
+                                    
+                                    
+                                  /*  string Empid = Console.ReadLine();
+                                    TextReader tr = new StreamReader(@"C:\Users\Public\Documents\"+Empid+".txt");
+                                    Console.WriteLine(tr.ReadLine());
+                                    tr.Close();*/
 
                                     break;
                                 case 4:
